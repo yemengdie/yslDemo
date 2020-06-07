@@ -1,0 +1,170 @@
+/* theme color */
+$--color-primary: #0080ff;
+
+/* icon font path, required */
+$--font-path: '~element-ui/lib/theme-chalk/fonts';
+
+@import "~element-ui/packages/theme-chalk/src/index";
+@import '~element-ui/lib/theme-chalk/display.css';
+
+// 滚动条
+.scrollbar-wrapper {
+    overflow-x: hidden !important;
+}
+
+.el-scrollbar {
+    height: 100%;
+}
+
+.el-scrollbar__bar {
+    right: 1px;
+}
+
+.el-scrollbar__thumb {
+    border-radius: 0;
+}
+
+//容器样式
+.el-container {
+    height: 100%;
+}
+
+.el-main {
+    padding: 0;
+}
+
+// 菜单
+.el-menu {
+    height: 100%;
+}
+
+//模态对话框
+.el-dialog__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0 !important;
+    // border-bottom: 1px solid #d7d7d7 !important;
+    line-height: 25px;
+}
+
+.el-dialog__headerbtn {
+    top: 14px;
+}
+
+.el-dialog__body {
+    padding-bottom: 10px;
+    padding-top: 10px; 
+}
+
+.el-dialog__title {
+    font-size: 14px !important;
+    color: #999 !important;
+    padding-left: 20px;
+    font-weight: bold !important;
+}
+
+.el-dialog__footer {
+    padding: 0 !important;
+}
+
+.dialog-footer {
+    // border-top: 1px solid #d7d7d7;
+    box-sizing: border-box;
+    padding: 10px 36px 15px 0;
+}
+
+
+
+// 卡片
+.el-card__header {
+    padding: 10px 15px;
+    font-size: 14px;
+}
+
+.el-card__header>div {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    height: 20px;
+    justify-content: space-between;
+}
+
+// 时间轴
+.el-timeline .el-timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+//输入框背景色透明
+.el-input input {
+    background-color: transparent;
+}
+
+//级联菜单最小宽度
+.el-cascader-menu {
+    min-width: 146px;
+}
+
+// table表的行padding
+.el-table td {
+    padding: 8px 0;
+}
+
+.el-table--small {
+    font-size: 14px;
+}
+
+// table中的按钮样式
+.button-style ul li {
+    float: left;
+    text-align: center;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    width: 28px;
+    height: 35px;
+    // margin: 2px 6px 0;
+    cursor: pointer;
+}
+
+.successDis {
+    color: #b3e19b !important;
+    cursor: not-allowed !important;
+}
+
+.warningDis {
+    color: #f3d19e !important;
+    cursor: not-allowed !important;
+}
+
+.dangerDis {
+    color: #fab6b6 !important;
+    cursor: not-allowed !important;
+}
+
+.infoDis {
+    color: #c8c9cc !important;
+    cursor: not-allowed !important;
+}
+
+.button-style ul li i {
+    display: block;
+}
+
+.button-style ul li span {
+    font-size: 12px;
+}
+
+//树结构中checkbox的样式
+// .el-tree-node__content .el-checkbox__inner {
+//     border: 1px solid #409EFF !important;
+// }
+
+.el-checkbox__input.is-disabled .el-checkbox__inner {
+    border: 1px solid #dcdfe6 !important;
+}
+
+//资源录入添加按钮下拉样式
+.el-popover .el-cascader-node {
+    padding: 0 15px 0 0;
+}
