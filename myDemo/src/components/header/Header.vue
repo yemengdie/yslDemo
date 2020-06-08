@@ -29,7 +29,7 @@
             <div class="nav-content float-clearfix">
               <div class="nav-wrap">
                 <ul class="nav nav-pills e-nav-pills">
-                  <li>彩妆</li>
+                  <li @click="MakeUp">彩妆</li>
                   <li>香水</li>
                   <li>护肤</li>
                   <li>尊享礼盒</li>
@@ -51,7 +51,7 @@
                   <li class="header-subscribe-email e-header-subscribe-email is-subscribe">
                     <span>订阅电子杂志</span>
                   </li>
-                  <li class="header-login e-header-login">
+                  <li class="header-login e-header-login" @click="login">
                     <span>登录与注册</span>
                   </li>
                   <li class="header-shopping-bag e-header-shopping-bag is-empty">
@@ -73,6 +73,14 @@ export default {
   name: "Header",
   data() {
     return {};
+  },
+  methods: {
+    login() {
+      this.$router.push("/login");
+    },
+    MakeUp() {
+      this.$router.push("/MakeUp");
+    }
   }
 };
 </script>

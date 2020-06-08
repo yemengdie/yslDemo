@@ -1,23 +1,37 @@
 <template>
   <div>
-    <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px">
-      <el-form-item label="手机号" prop="phone">
-        <el-input placeholder="请输入手机号" v-model="ruleForm.phone"></el-input>
-      </el-form-item>
-      <el-form-item label="密码" prop="password">
-        <el-input placeholder="请输入密码" type="password" v-model="ruleForm.password"></el-input>
-      </el-form-item>
-      <el-form-item>
-        <el-button type="primary" @click="login('ruleForm')">登录</el-button>
-        <div @click="register">
-          <span>还没有账号,前去注册</span>
+    <Header></Header>
+    <el-container>
+      <el-main>
+        <div class="login">
+          <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px">
+            <el-form-item label="手机号" prop="phone">
+              <el-input placeholder="请输入手机号" v-model="ruleForm.phone"></el-input>
+            </el-form-item>
+            <el-form-item label="密码" prop="password">
+              <el-input placeholder="请输入密码" type="password" v-model="ruleForm.password"></el-input>
+            </el-form-item>
+            <el-form-item>
+              <el-button type="primary" @click="login('ruleForm')">登录</el-button>
+              <div @click="register">
+                <span style="color:#0080ff;cursor: pointer;">还没有账号,前去注册</span>
+              </div>
+            </el-form-item>
+          </el-form>
         </div>
-      </el-form-item>
-    </el-form>
+      </el-main>
+    </el-container>
+    <Foot></Foot>
   </div>
 </template>
 <script>
+import Header from "@/components/header/Header.vue";
+import Foot from "@/components/footer/Foot.vue";
 export default {
+  components: {
+    Header,
+    Foot
+  },
   data() {
     var isphone = (rule, value, callback) => {
       var isPhone = /^1[3456789]\d{9}$/;
@@ -92,3 +106,17 @@ export default {
   }
 };
 </script>
+<style lang="scss" scoped>
+.login .el-form-item {
+  width: 50%;
+  margin: auto;
+  margin-top: 20px;
+}
+.login .el-button--primary {
+  color: #ffffff;
+  background-color: #000;
+  border-color: #000;
+  width: 50%;
+  font-size: 16px;
+}
+</style>

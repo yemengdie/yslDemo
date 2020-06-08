@@ -1,29 +1,44 @@
 <template>
   <div>
-    <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px">
-      <el-form-item label="用户名" prop="userName">
-        <el-input placeholder="请输入用户名" v-model="ruleForm.userName"></el-input>
-      </el-form-item>
-      <el-form-item label="手机号" prop="phone">
-        <el-input placeholder="请输入手机号" v-model="ruleForm.phone"></el-input>
-      </el-form-item>
-      <el-form-item label="密码" prop="password">
-        <el-input placeholder="请输入密码" type="password" v-model="ruleForm.password"></el-input>
-      </el-form-item>
-      <el-form-item label="确认密码" prop="password2">
-        <el-input placeholder="请再次输入密码" type="password" v-model="ruleForm.password2"></el-input>
-      </el-form-item>
-      <el-form-item>
-        <el-button type="primary" @click="register('ruleForm')">注册</el-button>
-        <div @click="login">
-          <span>已有账号，前去登录</span>
+    <Header></Header>
+    <el-container>
+      <el-main>
+        <div class="login">
+          <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px">
+            <el-form-item label="用户名" prop="userName">
+              <el-input placeholder="请输入用户名" v-model="ruleForm.userName"></el-input>
+            </el-form-item>
+            <el-form-item label="手机号" prop="phone">
+              <el-input placeholder="请输入手机号" v-model="ruleForm.phone"></el-input>
+            </el-form-item>
+            <el-form-item label="密码" prop="password">
+              <el-input placeholder="请输入密码" type="password" v-model="ruleForm.password"></el-input>
+            </el-form-item>
+            <el-form-item label="确认密码" prop="password2">
+              <el-input placeholder="请再次输入密码" type="password" v-model="ruleForm.password2"></el-input>
+            </el-form-item>
+            <el-form-item>
+              <el-button type="primary" @click="register('ruleForm')">注册</el-button>
+              <div @click="login">
+                <span style="color:#0080ff;cursor: pointer;">已有账号，前去登录</span>
+              </div>
+            </el-form-item>
+          </el-form>
         </div>
-      </el-form-item>
-    </el-form>
+      </el-main>
+    </el-container>
+
+    <Foot></Foot>
   </div>
 </template>
 <script>
+import Header from "@/components/header/Header.vue";
+import Foot from "@/components/footer/Foot.vue";
 export default {
+  components: {
+    Header,
+    Foot
+  },
   data() {
     var user_name = (rule, value, callback) => {
       var regName = /^[\u4e00-\u9fa5]{2,4}$/;
@@ -118,3 +133,17 @@ export default {
   }
 };
 </script>
+<style lang="scss" scoped>
+.login .el-form-item {
+  width: 50%;
+  margin: auto;
+  margin-top: 20px;
+}
+.login .el-button--primary {
+  color: #ffffff;
+  background-color: #000;
+  border-color: #000;
+  width: 50%;
+  font-size: 16px;
+}
+</style>

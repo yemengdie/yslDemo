@@ -240,10 +240,29 @@
 
 }
 
+.float-clearfix {
+  clear: both !important;
+}
+
+.icon,
+.starrank .rankBox>a {
+  display         : inline-block;
+  background-image: url("../image/icon.png");
+}
+
+.float-clearfix:after {
+  display   : block;
+  content   : "";
+  height    : 0;
+  clear     : both;
+  overflow  : hidden;
+  visibility: hidden;
+}
+
 .footer-container {
   & .footer-topcontent {
     background: #000;
-    padding   : 40px 0;
+    padding   : 40px 0
   }
 
   & .footer-topcontent ul {
@@ -262,6 +281,17 @@
     display   : block;
   }
 
+  // & .footer-topcontent ul li::after {
+  //   content   : '';
+  //   height    : 100%;
+  //   width     : 1px;
+  //   background: #575757;
+  //   display   : block;
+  //   position  : absolute;
+  //   top       : 0;
+  //   right     : 0;
+  // }
+
   & .footer-topcontent ul li label {
     width  : auto;
     height : 36px;
@@ -274,6 +304,24 @@
     height             : 36px;
   }
 
+  & .footer-topcontent .icon-payment {
+    background-position: -181px -115px;
+    width              : 54px;
+    height             : 32px;
+  }
+
+  & .footer-topcontent .icon-gift-box {
+    background-position: 0 -208px;
+    width              : 42px;
+    height             : 30px;
+  }
+
+  & .footer-topcontent .icon-contact-us {
+    background-position: -305px 0;
+    width              : 20px;
+    height             : 36px;
+  }
+
   & .footer-topcontent ul li span {
     display   : block;
     margin-top: 15px;
@@ -281,12 +329,139 @@
   }
 }
 
-.float-clearfix {
-  clear: both !important;
+.footer-container .footer-classify {
+  max-width: 1280px;
+  margin   : 0 auto;
+  padding  : 34px 66px;
 }
 
-.icon,
-.starrank .rankBox>a {
-  display         : inline-block;
-  background-image: url("../image/icon.png");
+.footer-classify .footer-classify-content {
+  width: 20%;
+  float: left;
+}
+
+.footer-classify ul>li {
+  margin-bottom: 15px;
+  color        : #999;
+  text-align   : left;
+  cursor       : pointer;
+}
+
+.footer-classify ul>li:first-child {
+  color: #000;
+}
+
+.footer-classify .subscribe-cont .dy {
+  text-align   : left;
+  margin-bottom: 10px;
+}
+
+.footer-classify .el-input__inner {
+  // border-color : #000;
+  border-radius: 0;
+}
+
+.footer-classify .form-input {
+  display: flex;
+}
+
+.footer-classify .btn {
+  height       : 40px;
+  line-height  : 40px;
+  min-width    : 38px;
+  padding      : 0 5px;
+  background   : #000;
+  border       : 0;
+  color        : #fff;
+  border-radius: 0;
+}
+
+.footer-classify .footer-contact {
+  margin-top: 36px;
+  text-align: left;
+}
+
+.footer-classify .icon-footer-weibo {
+  background-position: -331px -185px;
+  width              : 23px;
+  height             : 19px;
+}
+
+.footer-classify .icon-footer-wacth {
+  background-position: -242px -279px;
+  width              : 24px;
+  height             : 20px;
+}
+
+.footer-classify .footer-contact ul>li {
+  display     : inline-block;
+  margin-right: 10px;
+  margin-top  : 10px;
+}
+
+.footer-logo {
+  text-align: center;
+  margin    : 12px 0 46px;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding   : 36px 40px 48px;
+  background: #f2f2f2;
+}
+
+.footer-bottom .statement {
+  font-size    : 0;
+  margin-bottom: 15px;
+}
+
+.footer-bottom .statement>li {
+  display       : inline-block;
+  vertical-align: middle;
+  margin        : 0 10px;
+}
+
+.footer-bottom .statement>li>span {
+  font-size: 12px;
+  color    : #000;
+}
+
+.footer-bottom .statement>li {
+  display       : inline-block;
+  vertical-align: middle;
+  margin        : 0 10px;
+}
+
+.footer-bottom .icon-footer-zggs {
+  background-position: -305px -224px;
+  width              : 17px;
+  height             : 17px;
+  margin-right       : 7px;
+}
+
+.footer-bottom .icon-footer-hgyab {
+  background-position: -305px -174px;
+  width              : 18px;
+  height             : 20px;
+  margin-right       : 7px;
+}
+
+.footer-bottom .con-content>ul {
+  // font-size    : 0;
+  margin-bottom: 12px;
+}
+
+.footer-bottom .con-content>ul>li {
+  font-size      : 12px;
+  color          : #000;
+  text-decoration: underline;
+  display        : inline-block;
+  vertical-align : middle;
+  padding        : 0 20px;
+  position       : relative;
+}
+
+.el-footer {
+  padding: 0;
+  height : auto !important;
 }
