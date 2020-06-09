@@ -8,6 +8,8 @@
 
 }
 
+
+
 .Header {
   z-index   : 9;
   background: #fff;
@@ -35,6 +37,10 @@
     margin  : 0 10px;
     display : inline-block;
     cursor  : pointer;
+  }
+
+  & .header-content-wrap>ol>li {
+    cursor: pointer;
   }
 
   & .header-content-wrap>ul>li:first-child {
@@ -99,19 +105,24 @@
 
   & .nav-container {
     width     : 100%;
-    position  : static;
+    position  : relative;
     background: #fff;
+    box-sizing: border-box;
+    width     : 100%;
+    padding   : 12px;
 
     & .nav-content {
-      max-width    : 1320px;
-      padding      : 0 20px;
-      margin       : 0 auto;
-      border-top   : 1px solid #efeded;
-      border-bottom: 1px solid #efeded;
+      max-width      : 1320px;
+      padding        : 0 20px;
+      margin         : 0 auto;
+      border-top     : 1px solid #efeded;
+      border-bottom  : 1px solid #efeded;
+      display        : flex;
+      justify-content: space-evenly;
     }
 
     & .nav-wrap {
-      float: left;
+      // float: left;
     }
 
     & .nav-pills {
@@ -122,26 +133,63 @@
       margin       : 0 16px;
       display      : inline-block;
       cursor       : pointer;
-      position     : relative;
       padding      : 0 12px;
       line-height  : 50px;
       border-radius: 4px;
       font-size    : 14px;
     }
 
+    @media (max-width: 1250px) and (min-width: 1025px) {
+      .nav-pills>li {
+        margin: 0 10px;
+      }
+    }
+
+
     & .nav-pills>li:first-child {
       margin-left: 0;
     }
 
-    & .nav-pills>li:hover {
+    & .nav-pills>li>span:hover {
       color: #cb9864;
+    }
+
+    & .nav-pills .erji {
+      position        : absolute;
+      top             : 80%;
+      left            : 0;
+      display         : none;
+      background-color: #fff;
+      width           : 100%;
+      border-top      : 1px solid #000;
+      margin-top      : -1px;
+      max-height      : calc(100vh - 90px);
+      overflow        : auto;
+      max-width       : 100%;
+      margin          : 0 auto;
+      padding         : 39px 20px 50px;
+      font-size       : 14px;
+
+    }
+
+    & .erji>ul {
+      display        : flex;
+      justify-content: flex-start;
+    }
+
+    & .erji>ul>li {
+      width            : 210px;
+      margin           : 0 20px;
+      // display       : inline-block;
+      vertical-align   : top;
+
     }
   }
 
   & .functional-area {
-    position  : relative;
-    margin-top: 5px;
-    float     : right;
+    position   : relative;
+    margin-top : 5px;
+    margin-left: auto;
   }
 
   & .form-input {
@@ -240,8 +288,22 @@
 
 }
 
+
 .float-clearfix {
   clear: both !important;
+}
+
+.header-content-wrap {
+  display        : flex;
+  justify-content: space-between;
+}
+
+.header-content-wrap ol {
+  display: flex;
+}
+
+.header-content-wrap ol>li {
+  width: 120px;
 }
 
 .icon,
