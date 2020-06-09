@@ -1,9 +1,6 @@
 <template>
   <div>
     <Header></Header>
-<<<<<<< HEAD
-    <div @click="login">去登录</div>
-=======
     <el-container>
       <el-main>
         <div class="pc-part">
@@ -37,7 +34,6 @@
         </div>
       </el-main>
     </el-container>
->>>>>>> 580a97a03de2c917cbf0b6d9124d155a72f05df0
     <Foot></Foot>
   </div>
 </template>
