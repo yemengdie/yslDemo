@@ -1,0 +1,49 @@
+git commit -m "代码提交信息"
+
+git push origin master "将改动代码提交到远端仓库"
+
+git status  //查看相关文件的状态
+git stash  // 当要记录工作目录和索引的当前状态，但想要返回到干净的工作目录时
+git stash  apply //恢复（可能在不同的提交之上）
+
+提交代码 
+1 git checkout lxm  //检查自己的分支 
+2 git status  //查看相关文件的状态
+3 git pull origin dev  拉取代码到本地,
+4 git add .   
+5 git pull o							rigin dev 
+6 git status 
+7 git commit -m '备注信息'
+8 git push origin lxm //推送到远程仓库
+git
+
+
+合并代码
+
+git status 
+git stash //放在本地暂存
+git pull origin dev 
+git status 
+git pull origin dev 
+
+
+全部更新 开发代码 到本地
+git checkout dev
+
+git pull origin dev  拉取代码到本地,
+
+git checkout lxm 
+
+ git merge dev
+
+http://git.zeroelephant.com/zeroelephant-front-end/lx-wechat.git
+
+
+git branch 查看本地分支
+git branch dev 新建一个本地分支dev
+git checkout dev 切换到dev分支
+修改本地文件后，git status 查看本地文件修改状态
+git add .
+git commit -m '提交信息'
+git pull origin master 把本地代码更新同步
+、

@@ -1,7 +1,43 @@
 <template>
   <div>
     <Header></Header>
+<<<<<<< HEAD
     <div @click="login">去登录</div>
+=======
+    <el-container>
+      <el-main>
+        <div class="pc-part">
+          <div class="article por a1">
+            <img src="@/assets/image/gw.jpg" alt />
+          </div>
+          <div class="article por a2">
+            <img src="@/assets/image/PC_02.jpg" alt />
+          </div>
+          <div class="article por a3">
+            <img src="@/assets/image/PC_03.jpg" alt />
+          </div>
+          <div class="article por a4">
+            <img src="@/assets/image/PC_04.jpg" alt />
+          </div>
+          <div class="article por a4">
+            <img src="@/assets/image/PC_05.jpg" alt />
+          </div>
+          <div class="article por a4">
+            <img src="@/assets/image/PC_06.jpg" alt />
+          </div>
+          <div class="article por a7">
+            <img src="@/assets/image/PC_07.jpg" alt />
+          </div>
+          <div class="article por a4">
+            <img src="@/assets/image/PC_08.jpg" alt />
+          </div>
+          <div class="article por a9">
+            <img src="@/assets/image/PC_20.jpg" alt />
+          </div>
+        </div>
+      </el-main>
+    </el-container>
+>>>>>>> 580a97a03de2c917cbf0b6d9124d155a72f05df0
     <Foot></Foot>
   </div>
 </template>
@@ -23,3 +59,15 @@ export default {
   }
 };
 </script>
+<style lang="scss" scoped>
+.pc-part .article {
+  padding: 0;
+}
+.pc-part .a4 {
+  cursor: pointer;
+}
+.article img {
+  width: 100%;
+  display: block;
+}
+</style>
