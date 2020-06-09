@@ -1,6 +1,7 @@
 <template>
   <div>
     <Header></Header>
+    <div @click="login">去登录</div>
     <Foot></Foot>
   </div>
 </template>
