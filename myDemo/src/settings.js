@@ -1,3 +1,3 @@
 module.exports = {
-  title: '小叶',
+  title: 'YSL官网',
 }

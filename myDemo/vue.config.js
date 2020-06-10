@@ -6,7 +6,7 @@ function resolve(dir) {
     return path.join(__dirname, dir);
 }
 
-const name = defaultSettings.title || "小叶"; // page title
+const name = defaultSettings.title || "YSL官网"; // page title
 
 module.exports = {
     publicPath: "/my-demo", // 根路径

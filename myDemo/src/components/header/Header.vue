@@ -34,7 +34,7 @@
                 </ol>
               </div>
             </div>
-            <div class="login">
+            <div class="login" @click="home2">
               <img src="@/assets/image/logo.png" alt />
             </div>
           </div>
@@ -129,19 +129,7 @@
                     </span>
                   </div>
                 </div>
-                <!-- <ul>
-                  <li class="header-subscribe-email e-header-subscribe-email is-subscribe">
-                    <span>订阅电子杂志</span>
-                  </li>
-                  <li class="header-login e-header-login" @click="login">
-                    <span>登录与注册</span>
-                  </li>
-                  <li class="header-shopping-bag e-header-shopping-bag is-empty">
-                    <i class="icon icon-header-shopping-bag"></i>
-                    <span class="event-shoppingcart-count">购物袋-0件商品</span>
-                    <i class="icon icon-down-arrow"></i>
-                  </li>
-                </ul>-->
+                <div class="gw" ref="gw" style="display:none">购物袋0件商品</div>
               </div>
             </div>
           </div>
@@ -168,7 +156,14 @@ export default {
       this.$router.push("/login");
     },
     MakeUp() {
-      this.$router.push("/MakeUp");
+      this.$router.push({
+        name: "MakeUp"
+      });
+    },
+    home2() {
+      this.$router.push({
+        name: "home2"
+      });
     },
     //鼠标移入
     mouseOver() {
@@ -191,10 +186,12 @@ export default {
         this.$refs.nav.style.background = "#fff";
         this.$refs.nav.style.minWidth = "100%";
         this.$refs.nav.style.width = "100%";
+        this.$refs.gw.style.display = "block";
       } else {
         this.$refs.nav.style.position = "static";
         this.$refs.nav.style.minWidth = "auto";
         this.$refs.nav.style.width = "auto";
+        this.$refs.gw.style.display = "none";
       }
     }
   },

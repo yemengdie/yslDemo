@@ -8,6 +8,10 @@ import axios from "axios";
 import VueAxios from "vue-axios";
 import global from "@/utils/global"; //全局方法
 import "@/assets/css/comm.scss"
+import Header from "@/components/header/Header.vue";
+Vue.use("Header", Header)
+import Foot from "@/components/footer/Foot.vue";
+Vue.use("Foot", Foot)
 Vue.use(VueAxios, axios);
 Vue.use(global);
 

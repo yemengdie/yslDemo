@@ -1,0 +1,419 @@
+.home2 .el-carousel img {
+    height: 100%;
+    width : 100%;
+}
+
+.home2 .star {
+    padding     : 60px 15px 0;
+    max-width   : 1310px;
+    display     : block;
+    margin-left : auto;
+    margin-right: auto;
+}
+
+.common-header .header-title-en {
+    font-size: 16px;
+    margin   : 0 0 10px;
+}
+
+.common-header p {
+    font-weight: 700;
+    color      : #000;
+    text-align : center;
+}
+
+.common-header .header-title-cn {
+    font-size     : 26px;
+    margin-bottom : 30px;
+    letter-spacing: 6px;
+}
+
+.favorites-aside-nav {
+    position     : relative;
+    max-width    : 850px;
+    margin       : 0 auto 45px;
+    border-bottom: 1px solid #e5e5e5;
+    text-align   : center;
+}
+
+.favorites-aside-nav>ul>li {
+    display : inline-block;
+    position: relative;
+}
+
+.favorites-aside-nav ul li.isActive::before {
+    content   : "";
+    display   : block;
+    position  : absolute;
+    width     : 100%;
+    height    : 1px;
+    background: #000;
+    bottom    : -1px;
+}
+
+.favorites-aside-nav ul li span {
+    display       : block;
+    padding       : 0 30px;
+    height        : 25px;
+    font-size     : 14px;
+    letter-spacing: 2px;
+    line-height   : 25px;
+    color         : #a6a6a6;
+    text-align    : center;
+    cursor        : pointer;
+}
+
+.favorites-aside-nav ul li.isActive span {
+    color: #000;
+}
+
+.favorites-aside-content {
+    padding-bottom: 65px;
+}
+
+.goods-tab-item {
+    position: relative;
+}
+
+.goods-img-details {
+    display: inline-block;
+    width  : 38%;
+    float  : left;
+}
+
+.goods-img-details img {
+    width : 100%;
+    height: 100%;
+}
+
+.thumbnail {
+    padding      : 0;
+    border-radius: 4px;
+}
+
+.thumbnail .img-box {
+    display    : flex;
+    padding-top: 25px;
+}
+
+.thumbnail img {
+    width       : 100%;
+    height      : auto;
+    margin-left : auto;
+    margin-right: auto;
+}
+
+.thumbnail .tag {
+    position: absolute;
+    top     : 0;
+    left    : 0;
+    z-index : 2;
+}
+
+.thumbnail .tag span {
+    display       : inline-block;
+    width         : auto;
+    height        : 24px;
+    background    : #000;
+    padding       : 0 12px;
+    font-size     : 12px;
+    letter-spacing: 0.75px;
+    color         : #fff;
+    line-height   : 24px;
+    text-align    : center;
+}
+
+.thumbnail .goods-evaluate {
+    position      : relative;
+    padding-right : 20px;
+    text-align    : right;
+    vertical-align: middle;
+    width         : 50%;
+}
+
+.thumbnail .star-wrap {
+    position : relative;
+    overflow : hidden;
+    width    : 62px;
+    height   : 10px;
+    font-size: 0;
+    display  : inline-block;
+}
+
+.thumbnail .star-content {
+    overflow: hidden;
+    position: absolute;
+    top     : 0;
+    left    : 0;
+    z-index : 1;
+}
+
+.star-wrap .icon-star-black {
+    background-position: -49px -190px;
+    width              : 62px;
+    height             : 10px;
+}
+
+.goods-evaluate:after {
+    display   : block;
+    position  : absolute;
+    right     : 0;
+    bottom    : -3px;
+    content   : '';
+    width     : 1px;
+    height    : 25px;
+    background: #dadada;
+}
+
+.goods-price {
+    padding-left  : 20px;
+    font-size     : 12px;
+    font-weight   : 700;
+    color         : #000;
+    vertical-align: middle;
+    text-align    : left;
+    width         : 50%;
+}
+
+.goods-tit {
+    font-size          : 14px;
+    line-height        : 20px;
+    height             : 40px;
+    font-weight        : 700;
+    overflow           : hidden;
+    // -o-text-overflow: ellipsis;
+    text-overflow      : ellipsis;
+    display            : -webkit-box;
+    -webkit-line-clamp : 2;
+    -webkit-box-orient : vertical;
+}
+
+.goods-title-cn {
+    font-size          : 14px;
+    line-height        : 20px;
+    height             : 20px;
+    color              : #000;
+    white-space        : nowrap;
+    overflow           : hidden;
+    // -o-text-overflow: ellipsis;
+    text-overflow      : ellipsis;
+}
+
+.goods-introudce {
+    margin-bottom      : 15px;
+    font-size          : 12px;
+    line-height        : 20px;
+    height             : 20px;
+    white-space        : nowrap;
+    overflow           : hidden;
+    // -o-text-overflow: ellipsis;
+    text-overflow      : ellipsis;
+    color              : #999;
+}
+
+.goods-handle {
+    display       : none;
+    position      : absolute;
+    top           : 0;
+    left          : 0;
+    z-index       : 1;
+    width         : 100%;
+    height        : 100%;
+    white-space   : nowrap;
+    text-align    : center;
+    background    : rgba(255, 255, 255, .55);
+    pointer-events: auto
+}
+
+.btn-box {
+    display       : inline-block;
+    vertical-align: middle;
+}
+
+.goods-handle .btn:first-child {
+    margin-bottom: 10px;
+}
+
+.goods-handle .btn-black {
+    position: relative;
+}
+
+.goods-handle .btn {
+    display: block;
+    width  : 180px;
+}
+
+
+
+.btn {
+    overflow         : hidden;
+    text-align       : center;
+    white-space      : normal;
+    vertical-align   : middle;
+    font-size        : 14px;
+    padding          : 0 20px;
+    margin           : 0;
+    color            : #fff;
+    // background    : #ccc;
+    border-radius    : 0;
+    border           : 1px solid #ccc;
+    min-width        : 120px;
+    height           : 45px;
+    line-height      : 43px;
+    cursor           : pointer;
+}
+
+.btn-black {
+    color       : #fff;
+    background  : #000;
+    border-color: #000;
+}
+
+.btn-black .icon {
+    position  : absolute;
+    left      : 25px;
+    top       : 50%;
+    margin-top: -10px;
+}
+
+.btn-icon .icon-btn-shopping-bag {
+    background-position: -360px -94px;
+    width              : 11px;
+    height             : 17px;
+}
+
+.goods-handle:after {
+    display       : inline-block;
+    content       : '';
+    width         : 0;
+    height        : 100%;
+    vertical-align: middle;
+}
+
+.btn-black-border {
+    border-color    : #000;
+    background-color: #000;
+}
+
+.btn-black-border:hover {
+    color     : #000;
+    background: #fff;
+}
+
+.btn-black:hover {
+    color     : #000;
+    background: #fff;
+}
+
+.beauty {
+    width       : 100%;
+    padding     : 80px 0;
+    background  : #f2f2f2;
+    display     : block;
+    margin-left : auto;
+    margin-right: auto;
+
+    ul {
+        max-width: 1300px;
+        margin   : 0 auto;
+        position : relative;
+    }
+
+    ul li {
+        padding       : 0 10px;
+        width         : 25%;
+        display       : inline-block;
+        zoom          : 1;
+        vertical-align: top;
+        font-size     : 14px;
+    }
+
+    ul li img {
+        width: 100%;
+    }
+
+    & .img-box {
+        width     : 100%;
+        background: #fff;
+    }
+
+    & .text-cap {
+        position  : relative;
+        width     : 100%;
+        background: #fff;
+        padding   : 40px;
+    }
+
+    & .text-cap .beauty-title {
+        color        : #000;
+        font-size    : 20px;
+        font-weight  : 700;
+        margin-bottom: 20px;
+        white-space  : nowrap;
+        overflow     : hidden;
+        text-overflow: ellipsis;
+    }
+
+    & .text-cap .beauty-details {
+        font-size         : 14px;
+        line-height       : 20px;
+        height            : 40px;
+        color             : #999;
+        overflow          : hidden;
+        -o-text-overflow  : ellipsis;
+        text-overflow     : ellipsis;
+        display           : -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+
+    & .text-cap .beauty-link {
+        font-size : 14px;
+        color     : #000;
+        margin-top: 60px;
+
+    }
+}
+
+.imgwrap {
+    padding     : 0;
+    display     : block;
+    margin-left : auto;
+    margin-right: auto;
+
+    & img {
+        width: 100%;
+    }
+}
+
+.essentials {
+    padding     : 75px 15px 0;
+    width       : 100%;
+    background  : #f2f2f2;
+    display     : block;
+    margin-left : auto;
+    margin-right: auto;
+
+    .essentials-wrapper {
+        max-width: 1280px;
+        margin   : 0 auto;
+        position : relative;
+    }
+
+    .swiper-container {
+        max-width     : 1310px;
+        margin        : 0 auto;
+        padding-bottom: 40px;
+        position      : relative;
+        overflow      : hidden;
+    }
+
+    .swiper-wrapper {
+        transform: translate3d(0, 0, 0);
+        display  : flex;
+        width    : 100%;
+        height   : 100%;
+        position : relative;
+    }
+
+}
