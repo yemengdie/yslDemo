@@ -287,10 +287,14 @@ export default {
           id: "4",
           name: "护肤"
         }
-      ]
+      ],
+      banner: []
     };
   },
   creact() {},
+  mounted() {
+    this.lunbo();
+  },
   methods: {
     login() {
       this.$router.push("/login");
@@ -324,6 +328,12 @@ export default {
         var shopping3 = this.$refs.shopping3;
         shopping3.style.display = "none";
       }
+    },
+    //轮播图
+    lunbo() {
+      this.$axios.get(this.$api.banner, {}).then(res => {
+        console.log(res);
+      });
     }
   }
 };
