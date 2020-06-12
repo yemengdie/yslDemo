@@ -48,6 +48,9 @@ export default {
   data() {
     return {};
   },
+  created() {
+    console.log(localStorage.getItem("username"));
+  },
   methods: {
     login() {
       this.$router.push("/login");

@@ -6,17 +6,8 @@
         <div class="home2">
           <div>
             <el-carousel :interval="3000" arrow="always">
-              <el-carousel-item>
-                <img src="@/assets/image/lb1.jpg" alt />
-              </el-carousel-item>
-              <el-carousel-item>
-                <img src="@/assets/image/gw.jpg" alt />
-              </el-carousel-item>
-              <el-carousel-item>
-                <img src="@/assets/image/lb2.jpg" alt />
-              </el-carousel-item>
-              <el-carousel-item>
-                <img src="@/assets/image/lb3.jpg" alt />
+              <el-carousel-item v-for="item in banner" :key="item.goodId">
+                <img :src="imgUrl+item.pic_url" alt />
               </el-carousel-item>
             </el-carousel>
           </div>
@@ -288,10 +279,14 @@ export default {
           name: "护肤"
         }
       ],
-      banner: []
+      banner: [],
+      imgUrl: ""
     };
   },
-  creact() {},
+  created() {
+    this.imgUrl = process.env.VUE_APP_coverImg;
+    console.log(this.imgUrl);
+  },
   mounted() {
     this.lunbo();
   },
@@ -331,8 +326,15 @@ export default {
     },
     //轮播图
     lunbo() {
-      this.$axios.get(this.$api.banner, {}).then(res => {
-        console.log(res);
+      this.$axios.get(this.$api.userBanner, {}).then(res => {
+        if (res.code == "200") {
+          this.banner = res.data;
+        } else {
+          this.$message({
+            message: res.message,
+            type: "warning"
+          });
+        }
       });
     }
   }

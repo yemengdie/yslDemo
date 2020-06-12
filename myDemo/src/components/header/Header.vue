@@ -23,8 +23,20 @@
                   <li class="header-subscribe-email e-header-subscribe-email is-subscribe">
                     <span>订阅电子杂志</span>
                   </li>
-                  <li class="header-login e-header-login" @click="login">
+                  <li class="header-login e-header-login" @click="login" v-if="username==''">
                     <span>登录与注册</span>
+                  </li>
+                  <li
+                    class="header-login e-header-login logOut"
+                    v-if="username!=''"
+                    @click="logOut"
+                  >
+                    <img
+                      style="width: 25px;height: 25px;vertical-align: middle; margin-right: 5px;"
+                      src="@/assets/image/tx.png"
+                      alt
+                    />
+                    <span>{{username}}</span>
                   </li>
                   <li class="header-shopping-bag e-header-shopping-bag is-empty">
                     <i class="icon icon-header-shopping-bag"></i>
@@ -135,6 +147,13 @@
           </div>
         </div>
       </div>
+      <!-- <el-dialog :visible.sync="dialogVisible" width="30%" height="200px" @close="resetAdd">
+        <span>确定要退出登录？</span>
+        <span slot="footer" class="dialog-footer">
+          <el-button @click="dialogVisible = false">取 消</el-button>
+          <el-button type="primary" @click="logOutBtn">确 定</el-button>
+        </span>
+      </el-dialog>-->
     </el-main>
   </el-container>
 </template>
@@ -144,16 +163,41 @@ export default {
   data() {
     return {
       active: "",
-      scrollPos: ""
+      scrollPos: "",
+      username: "",
+      dialogVisible: false
     };
   },
   whatch: {},
+  created() {
+    console.log(localStorage.getItem("username"));
+    if (
+      localStorage.getItem("username") != undefined ||
+      localStorage.getItem("username") != null
+    ) {
+      this.username = localStorage.getItem("username");
+    } else {
+      this.username = "";
+    }
+  },
   mounted() {
     window.addEventListener("scroll", this.handleScroll);
   },
   methods: {
+    //登录
     login() {
       this.$router.push("/login");
+    },
+    //退出登录
+    logOut() {
+      this.dialogVisible = true;
+    },
+    logOutBtn() {
+      localStorage.removeItem("token");
+      localStorage.removeItem("username");
+    },
+    resetAdd() {
+      this.dialogVisible = false;
     },
     MakeUp() {
       this.$router.push({
