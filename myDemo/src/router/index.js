@@ -5,6 +5,7 @@ import login from "@/views/login/login.vue";
 import register from "@/views/login/register.vue"
 import MakeUp from "@/views/MakeUp/index.vue"
 import home2 from "@/views/home/home2.vue"
+import detail from "@/views/details/index.vue"
 Vue.use(VueRouter);
 
 const routes = [
@@ -38,6 +39,11 @@ const routes = [
     name: "register",
     component: register,
   },
+  {
+    path: "/detail",
+    name: "detail",
+    component: detail,
+  }
 
 ];
 

@@ -26,17 +26,14 @@
                   <li class="header-login e-header-login" @click="login" v-if="username==''">
                     <span>登录与注册</span>
                   </li>
-                  <li
-                    class="header-login e-header-login logOut"
-                    v-if="username!=''"
-                    @click="logOut"
-                  >
+                  <li class="header-login e-header-login logOut" v-if="username!=''">
                     <img
                       style="width: 25px;height: 25px;vertical-align: middle; margin-right: 5px;"
                       src="@/assets/image/tx.png"
                       alt
                     />
                     <span>{{username}}</span>
+                    <span @click="logOut" style="margin-left:20px">退出</span>
                   </li>
                   <li class="header-shopping-bag e-header-shopping-bag is-empty">
                     <i class="icon icon-header-shopping-bag"></i>
@@ -147,13 +144,6 @@
           </div>
         </div>
       </div>
-      <!-- <el-dialog :visible.sync="dialogVisible" width="30%" height="200px" @close="resetAdd">
-        <span>确定要退出登录？</span>
-        <span slot="footer" class="dialog-footer">
-          <el-button @click="dialogVisible = false">取 消</el-button>
-          <el-button type="primary" @click="logOutBtn">确 定</el-button>
-        </span>
-      </el-dialog>-->
     </el-main>
   </el-container>
 </template>
@@ -164,8 +154,7 @@ export default {
     return {
       active: "",
       scrollPos: "",
-      username: "",
-      dialogVisible: false
+      username: ""
     };
   },
   whatch: {},
@@ -190,14 +179,9 @@ export default {
     },
     //退出登录
     logOut() {
-      this.dialogVisible = true;
-    },
-    logOutBtn() {
       localStorage.removeItem("token");
       localStorage.removeItem("username");
-    },
-    resetAdd() {
-      this.dialogVisible = false;
+      this.$router.push("/login");
     },
     MakeUp() {
       this.$router.push({

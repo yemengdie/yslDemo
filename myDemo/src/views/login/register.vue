@@ -115,7 +115,14 @@ export default {
                   message: res.message,
                   type: "success"
                 });
-                this.$router.push("/");
+                this.$store.commit("token", res.data.token);
+                this.$store.commit("username", res.data.user);
+                this.$router.push({
+                  name: "home",
+                  params: {
+                    username: res.data.user
+                  }
+                });
                 this.$refs[formName].resetFields();
               } else if (res.code == "201") {
                 this.$message({

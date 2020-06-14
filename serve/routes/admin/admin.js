@@ -66,6 +66,7 @@ router.post('/register', function (req, res) {
 					`INSERT INTO user (user, phone, password) VALUES ("${user}","${phone}","${password}")`;
 				connection.query(sql, [user, phone, password], function (error, results, fields) {
 					let { insertId, affectedRows } = results;
+					console.log(results)
 					if (error || affectedRows <= 0) {
 						return connection.rollback(function () {
 							throw error || `${affectedRows} rows changed!`;
@@ -80,7 +81,7 @@ router.post('/register', function (req, res) {
 					});
 					let payload = {
 						id: insertId,
-						user,
+						//user: parms.user,
 
 					};
 					// 生成token
@@ -92,7 +93,7 @@ router.post('/register', function (req, res) {
 						data: {
 							token,
 							id: insertId,
-							user
+							user: user,
 
 						}
 					});
