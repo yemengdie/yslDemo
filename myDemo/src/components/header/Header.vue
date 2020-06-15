@@ -159,10 +159,10 @@ export default {
   },
   whatch: {},
   created() {
-    console.log(localStorage.getItem("username"));
     if (
       localStorage.getItem("username") != undefined ||
-      localStorage.getItem("username") != null
+      localStorage.getItem("username") != null ||
+      localStorage.getItem("username") == ""
     ) {
       this.username = localStorage.getItem("username");
     } else {
@@ -171,17 +171,30 @@ export default {
   },
   mounted() {
     window.addEventListener("scroll", this.handleScroll);
+    this.menu();
   },
   methods: {
+    //导航栏
+    menu() {
+      this.$axios.get(this.$api.menuList, {}).then(res => {
+        console.log(res);
+        // if(res.)
+      });
+    },
     //登录
     login() {
       this.$router.push("/login");
     },
     //退出登录
     logOut() {
-      localStorage.removeItem("token");
-      localStorage.removeItem("username");
-      this.$router.push("/login");
+      this.$store.dispatch("loginOut").then(res => {
+        if (res.code == this.$code.success) {
+          this.successMessage("退出成功");
+          this.$router.push("/home");
+        } else {
+          this.errorMessage("退出失败");
+        }
+      });
     },
     MakeUp() {
       this.$router.push({

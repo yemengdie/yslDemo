@@ -9,6 +9,14 @@ export function userLogin(data) {
         data
     })
 }
+// 用户登陆
+export function userRegister(data) {
+    return request({
+        url: api.userRegister,
+        method: 'post',
+        data
+    })
+}
 
 // 退出登陆
 export function userLogout(data) {

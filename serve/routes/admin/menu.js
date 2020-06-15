@@ -3,6 +3,40 @@ const router = express.Router();
 // 数据库
 let db = require('../../config/mysql');
 
+//获取菜单
+router.get("/menu", function (req, res) {
+	let { name, pId, menu_order } = req.body;
+	let sql = `SELECT * FROM menu`;
+	db.query(sql, [], function (results, fields) {
+		if (!results.length) {
+			res.json({
+				code: 201,
+				message: "网络请求失败！"
+			});
+		} else {
+			res.json({
+				code: 200,
+				message: "",
+				data: results
+			});
+		}
+	})
+})
+router.get("/submenu", function (req, res) {
+	let pId = req.body
+	let sql = `select submenu.pId,submenu.name from submenu inner join menu on submenu.pId=menu.pId where menu.pId=${pId}`;
+	db.query(sql, [pId], function (results, fields) {
+		//成功
+		res.json({
+			code: '200',
+			message: "success",
+			data: results
+		});
+	});
+})
+
+
+
 /**
  * @api {post} /api/menu 添加子菜单
  * @apiName MenuAdd
@@ -17,10 +51,10 @@ let db = require('../../config/mysql');
  *
  * @apiSampleRequest /api/menu
  */
-router.post("/", function(req, res) {
+router.post("/", function (req, res) {
 	let { name, pId, path, order, component } = req.body;
 	let sql = `INSERT INTO MENU (name,pId,path,menu_order,component) VALUES (?,?,?,?,?) `;
-	db.query(sql, [name, pId, path, order, component], function(results, fields) {
+	db.query(sql, [name, pId, path, order, component], function (results, fields) {
 		//成功
 		res.json({
 			status: true,
@@ -41,10 +75,10 @@ router.post("/", function(req, res) {
  *
  * @apiSampleRequest /api/menu
  */
-router.delete("/", function(req, res) {
+router.delete("/", function (req, res) {
 	let { id } = req.query;
 	let sql = `DELETE FROM MENU WHERE id = ?`;
-	db.query(sql, [id], function(results, fields) {
+	db.query(sql, [id], function (results, fields) {
 		//成功
 		res.json({
 			status: true,
@@ -65,10 +99,10 @@ router.delete("/", function(req, res) {
  *
  * @apiSampleRequest /api/menu
  */
-router.put("/", function(req, res) {
+router.put("/", function (req, res) {
 	let { name, path, id, order, component } = req.body;
 	let sql = `UPDATE MENU SET name = ? , path = ?, menu_order = ?, component = ? WHERE id = ? `;
-	db.query(sql, [name, path, order, component, id], function(results, fields) {
+	db.query(sql, [name, path, order, component, id], function (results, fields) {
 		//成功
 		res.json({
 			status: true,
@@ -87,10 +121,10 @@ router.put("/", function(req, res) {
  *
  * @apiSampleRequest /api/menu/icon
  */
-router.put("/icon", function(req, res) {
+router.put("/icon", function (req, res) {
 	let { id, icon } = req.body;
 	let sql = `UPDATE MENU SET icon_id = ? WHERE id = ? `;
-	db.query(sql, [icon, id], function(results, fields) {
+	db.query(sql, [icon, id], function (results, fields) {
 		//成功
 		res.json({
 			status: true,
@@ -108,10 +142,10 @@ router.put("/icon", function(req, res) {
  *
  * @apiSampleRequest /api/menu/sub
  */
-router.get("/sub", function(req, res) {
+router.get("/sub", function (req, res) {
 	let sql =
 		`SELECT m.id,m.name,m.pId,m.path,m.component, m.menu_order AS 'order', i.name AS 'icon' FROM MENU m LEFT JOIN icon i ON m.icon_id = i.id WHERE m.pId = ? ORDER BY m.menu_order`;
-	db.query(sql, [req.query.pId], function(results, fields) {
+	db.query(sql, [req.query.pId], function (results, fields) {
 		//成功
 		res.json({
 			status: true,
@@ -130,20 +164,20 @@ router.get("/sub", function(req, res) {
  *
  * @apiSampleRequest /api/menu/tree
  */
-router.get('/tree', function(req, res) {
+router.get('/tree', function (req, res) {
 	let { id } = req.query;
 	let sql =
 		`SELECT m.*,i.name AS 'icon' FROM MENU m JOIN role_menu rm ON rm.menu_id = m.id LEFT JOIN icon i ON m.icon_id = i.id WHERE rm.role_id = ? ORDER BY menu_order;`;
-	db.query(sql, [id], function(results) {
+	db.query(sql, [id], function (results) {
 		//筛选出一级菜单
 		let menu_1st = results.filter((item) => item.pId === 1 ? item : null);
 		//递归循环数据
 		parseToTree(menu_1st);
 		//递归函数
 		function parseToTree(array) {
-			array.forEach(function(parent) {
+			array.forEach(function (parent) {
 				parent.children = [];
-				results.forEach(function(child) {
+				results.forEach(function (child) {
 					if (child.pId === parent.id) {
 						parent.children.push(child);
 					}

@@ -102,8 +102,8 @@ export default {
       this.$refs[formName].validate(valid => {
         console.log("111111111111");
         if (valid) {
-          this.$axios
-            .post(this.$api.userRegister, {
+          this.$store
+            .dispatch("userRegister", {
               phone: this.ruleForm.phone,
               password: this.ruleForm.password,
               user: this.ruleForm.userName

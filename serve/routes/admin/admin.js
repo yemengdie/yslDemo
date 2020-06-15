@@ -172,6 +172,16 @@ router.post('/login', function (req, res) {
 		}
 	})
 })
+
+//退出登录
+
+router.get("/logOut", (req, res) => {
+	res.clearCookie("token");
+	res.json({
+		code: '200',
+		message: '退出成功'
+	})
+})
 /**
  * @api {get} /api/admin/banner 获取管理员列表
  * @apiName AdminList
