@@ -51,84 +51,16 @@
             <div class="nav-content float-clearfix" ref="nav">
               <div class="nav-wrap">
                 <ul class="nav nav-pills e-nav-pills">
-                  <li @click="MakeUp" @mouseover="mouseOver" @mouseleave="mouseLeave">
-                    <span>彩妆</span>
-                    <div ref="erji" class="erji">
-                      <ul>
-                        <li>
-                          <span>唇部</span>
-                          <div class="sanji">
-                            <ul>
-                              <li>
-                                <span>唇膏</span>
-                              </li>
-                              <li>
-                                <span>唇釉</span>
-                              </li>
-                              <li>
-                                <span>唇颊霜</span>
-                              </li>
-                            </ul>
-                          </div>
-                        </li>
-                        <li>
-                          <span>面部</span>
-                          <div class="sanji">
-                            <ul>
-                              <li>
-                                <span>唇膏</span>
-                              </li>
-                              <li>
-                                <span>唇釉</span>
-                              </li>
-                              <li>
-                                <span>唇颊霜</span>
-                              </li>
-                            </ul>
-                          </div>
-                        </li>
-                        <li>
-                          <span>眼部</span>
-                          <div class="sanji">
-                            <ul>
-                              <li>
-                                <span>唇膏</span>
-                              </li>
-                              <li>
-                                <span>唇釉</span>
-                              </li>
-                              <li>
-                                <span>唇颊霜</span>
-                              </li>
-                            </ul>
-                          </div>
-                        </li>
-                        <li>
-                          <span>套装工具</span>
-                        </li>
-                      </ul>
-                    </div>
-                  </li>
-                  <li>
-                    <span>香水</span>
-                  </li>
-                  <li>
-                    <span>护肤</span>
-                  </li>
-                  <li>
-                    <span>尊享礼盒</span>
-                  </li>
-                  <li>
-                    <span>618年中盛典</span>
-                  </li>
-                  <li>
-                    <span>会员中心</span>
-                  </li>
-                  <li>
-                    <span>私人定制服务</span>
-                  </li>
+                  <li
+                    v-for="(item,i) in menuList"
+                    :key="item.id"
+                    @mouseover="mouseOver(item.pId,$event)"
+                    @mouseleave="mouseLeave($event)"
+                    @click="MakeUp(item.name)"
+                  >{{item.name}}</li>
                 </ul>
               </div>
+
               <div class="functional-area">
                 <div class="form-input none-sm">
                   <div>
@@ -140,6 +72,13 @@
                 </div>
                 <div class="gw" ref="gw" style="display:none">购物袋0件商品</div>
               </div>
+            </div>
+            <div ref="erji" class="erji">
+              <ul>
+                <li v-for="(item,index) in sbMenuList" :key="item.id">
+                  <span>{{item.name}}</span>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -154,7 +93,10 @@ export default {
     return {
       active: "",
       scrollPos: "",
-      username: ""
+      username: "",
+      menuList: [], //导航栏
+      pId: "",
+      sbMenuList: []
     };
   },
   whatch: {},
@@ -178,8 +120,30 @@ export default {
     menu() {
       this.$axios.get(this.$api.menuList, {}).then(res => {
         console.log(res);
-        // if(res.)
+        if (res.code == "200") {
+          this.menuList = res.data;
+        } else {
+          this.$message({
+            message: res.message,
+            type: "warning"
+          });
+        }
       });
+    },
+    //子导航栏
+    sbMenu(item) {
+      this.$axios
+        .get(this.$api.sbMenuList, {
+          params: {
+            pId: parseInt(item)
+          }
+        })
+        .then(res => {
+          console.log(res);
+          if (res.code == "200") {
+            this.sbMenuList = res.data;
+          }
+        });
     },
     //登录
     login() {
@@ -196,10 +160,12 @@ export default {
         }
       });
     },
-    MakeUp() {
-      this.$router.push({
-        name: "MakeUp"
-      });
+    MakeUp(item) {
+      if (item == "彩妆") {
+        this.$router.push({
+          name: "MakeUp"
+        });
+      }
     },
     home2() {
       this.$router.push({
@@ -207,16 +173,22 @@ export default {
       });
     },
     //鼠标移入
-    mouseOver() {
+    mouseOver(item, e) {
       // 操作dom 获取标签改变其样式
+      //this.pId = item;
+
+      console.log(item);
       var erji = this.$refs.erji;
       erji.style.display = "block";
+      this.sbMenu(item);
     },
     // 移出
-    mouseLeave() {
+    mouseLeave(e) {
       this.active = "";
       var erji = this.$refs.erji;
       erji.style.display = "none";
+      this.pId = "";
+      this.sbMenuList = [];
     },
     handleScroll() {
       // console.log(document.documentElement.scrollTop);
@@ -228,11 +200,15 @@ export default {
         this.$refs.nav.style.minWidth = "100%";
         this.$refs.nav.style.width = "100%";
         this.$refs.gw.style.display = "block";
+        this.$refs.erji.style.position = "fixed";
+        this.$refs.erji.style.top = "10%";
       } else {
         this.$refs.nav.style.position = "static";
         this.$refs.nav.style.minWidth = "auto";
         this.$refs.nav.style.width = "auto";
         this.$refs.gw.style.display = "none";
+        this.$refs.erji.style.position = "absolute";
+        this.$refs.erji.style.top = "80%";
       }
     }
   },

@@ -108,7 +108,53 @@
                     <div>
                       <img src="@/assets/image/srcy.jpg" alt />
                     </div>
-
+                    <div class="details-box">
+                      <div class="goods-classify">
+                        <p class="goods-tit">TATOUAGE COUTURE VELVET CREAM</p>
+                        <p class="goods-introudce">圣罗兰丝绒唇釉</p>
+                        <div class="row">
+                          <div class="col-12-6 col-sm-12-12 goods-evaluate">
+                            <ul class="evaluate-star">
+                              <li class="is-active">
+                                <i class="icon icon-evaluate-star"></i>
+                              </li>
+                              <li class="is-active">
+                                <i class="icon icon-evaluate-star"></i>
+                              </li>
+                              <li class="is-active">
+                                <i class="icon icon-evaluate-star"></i>
+                              </li>
+                              <li class="is-active">
+                                <i class="icon icon-evaluate-star"></i>
+                              </li>
+                              <li class="is-active">
+                                <i class="icon icon-evaluate-star"></i>
+                              </li>
+                              <input type="hidden" value="-1.0" />
+                            </ul>
+                          </div>
+                          <div class="col-12-6 col-sm-12-12 goods-price">
+                            <span>¥335</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="goods-handle none block-sm">
+                        <a
+                          class="btn btn-black btn-icon mobileQuickBuy"
+                          href="javascript:void(0);"
+                          data-code="00415YSL-011"
+                          data-size="均码"
+                          data-id="6607"
+                        >
+                          <i class="icon icon-btn-shopping-bag"></i>
+                          <!--P4-4立即购买 mobile-->
+                          <span
+                            class="presell-mobile-button-show"
+                            onclick="gsPush('PLP页面','立即购买','新品-1')"
+                          >立即购买</span>
+                        </a>
+                      </div>
+                    </div>
                     <div class="tag">
                       <span class="tag-hot homepage-presell-tag-event">新品</span>
                     </div>
@@ -138,6 +184,53 @@
                     <div>
                       <img src="@/assets/image/srcy.jpg" alt />
                     </div>
+                    <div class="details-box">
+                      <div class="goods-classify">
+                        <p class="goods-tit">TATOUAGE COUTURE VELVET CREAM</p>
+                        <p class="goods-introudce">圣罗兰丝绒唇釉</p>
+                        <div class="row">
+                          <div class="col-12-6 col-sm-12-12 goods-evaluate">
+                            <ul class="evaluate-star">
+                              <li class="is-active">
+                                <i class="icon icon-evaluate-star"></i>
+                              </li>
+                              <li class="is-active">
+                                <i class="icon icon-evaluate-star"></i>
+                              </li>
+                              <li class="is-active">
+                                <i class="icon icon-evaluate-star"></i>
+                              </li>
+                              <li class="is-active">
+                                <i class="icon icon-evaluate-star"></i>
+                              </li>
+                              <li class="is-active">
+                                <i class="icon icon-evaluate-star"></i>
+                              </li>
+                              <input type="hidden" value="-1.0" />
+                            </ul>
+                          </div>
+                          <div class="col-12-6 col-sm-12-12 goods-price">
+                            <span>¥335</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="goods-handle none block-sm">
+                        <a
+                          class="btn btn-black btn-icon mobileQuickBuy"
+                          href="javascript:void(0);"
+                          data-code="00415YSL-011"
+                          data-size="均码"
+                          data-id="6607"
+                        >
+                          <i class="icon icon-btn-shopping-bag"></i>
+                          <!--P4-4立即购买 mobile-->
+                          <span
+                            class="presell-mobile-button-show"
+                            onclick="gsPush('PLP页面','立即购买','新品-1')"
+                          >立即购买</span>
+                        </a>
+                      </div>
+                    </div>
                     <div class="tag">
                       <span class="tag-hot homepage-presell-tag-event">新品</span>
                     </div>
@@ -163,6 +256,53 @@
                   >
                     <div>
                       <img src="@/assets/image/srcy.jpg" alt />
+                    </div>
+                    <div class="details-box">
+                      <div class="goods-classify">
+                        <p class="goods-tit">TATOUAGE COUTURE VELVET CREAM</p>
+                        <p class="goods-introudce">圣罗兰丝绒唇釉</p>
+                        <div class="row">
+                          <div class="col-12-6 col-sm-12-12 goods-evaluate">
+                            <ul class="evaluate-star">
+                              <li class="is-active">
+                                <i class="icon icon-evaluate-star"></i>
+                              </li>
+                              <li class="is-active">
+                                <i class="icon icon-evaluate-star"></i>
+                              </li>
+                              <li class="is-active">
+                                <i class="icon icon-evaluate-star"></i>
+                              </li>
+                              <li class="is-active">
+                                <i class="icon icon-evaluate-star"></i>
+                              </li>
+                              <li class="is-active">
+                                <i class="icon icon-evaluate-star"></i>
+                              </li>
+                              <input type="hidden" value="-1.0" />
+                            </ul>
+                          </div>
+                          <div class="col-12-6 col-sm-12-12 goods-price">
+                            <span>¥335</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="goods-handle none block-sm">
+                        <a
+                          class="btn btn-black btn-icon mobileQuickBuy"
+                          href="javascript:void(0);"
+                          data-code="00415YSL-011"
+                          data-size="均码"
+                          data-id="6607"
+                        >
+                          <i class="icon icon-btn-shopping-bag"></i>
+                          <!--P4-4立即购买 mobile-->
+                          <span
+                            class="presell-mobile-button-show"
+                            onclick="gsPush('PLP页面','立即购买','新品-1')"
+                          >立即购买</span>
+                        </a>
+                      </div>
                     </div>
                     <div class="tag">
                       <span class="tag-hot homepage-presell-tag-event">新品</span>

@@ -157,7 +157,7 @@
       color: #cb9864;
     }
 
-    & .nav-pills .erji {
+    & .erji {
       position        : absolute;
       top             : 80%;
       left            : 0;
@@ -316,7 +316,7 @@
 }
 
 .header-content-wrap ol {
-  display: flex;
+  display    : flex;
   align-items: center;
 }
 

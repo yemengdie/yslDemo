@@ -8,6 +8,7 @@ router.get("/menu", function (req, res) {
 	let { name, pId, menu_order } = req.body;
 	let sql = `SELECT * FROM menu`;
 	db.query(sql, [], function (results, fields) {
+		console.log(results)
 		if (!results.length) {
 			res.json({
 				code: 201,
@@ -16,23 +17,32 @@ router.get("/menu", function (req, res) {
 		} else {
 			res.json({
 				code: 200,
-				message: "",
+				message: "success",
 				data: results
 			});
 		}
 	})
 })
+//获取子菜单
 router.get("/submenu", function (req, res) {
-	let pId = req.body
-	let sql = `select submenu.pId,submenu.name from submenu inner join menu on submenu.pId=menu.pId where menu.pId=${pId}`;
-	db.query(sql, [pId], function (results, fields) {
+	console.log(req.query)
+	let sql = `select submenu.pId,submenu.name from submenu inner join menu on submenu.pId=menu.pId where menu.pId=${req.query.pId}`;
+	db.query(sql, [req.query.pId], function (results, fields) {
 		//成功
-		res.json({
-			code: '200',
-			message: "success",
-			data: results
-		});
-	});
+		if (!results.length) {
+			res.json({
+				code: "201",
+				message: "网络请求失败！"
+			});
+		} else {
+			res.json({
+				code: '200',
+				message: "success",
+				data: results
+			});
+		}
+
+	})
 })
 
 
