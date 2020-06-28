@@ -3,11 +3,11 @@ import App from "./App.vue";
 import router from "@/router/index.js";
 import { store } from "@/store/index.js";
 import "./plugins/element/element.js"; // 引入饿了么UI
-import "./plugins/vcharts/vcharts.js"; // 引入vcharts
+// import "./plugins/vcharts/vcharts.js"; // 引入vcharts
 // import "@/utils/permissions"; //全局路由钩子
 import axios from "axios";
 import VueAxios from "vue-axios";
-import echarts from 'echarts'
+// import echarts from 'echarts'
 import VueUeditorWrap from 'vue-ueditor-wrap'
 Vue.use(echarts)
 import global from "@/utils/global"; //全局方法
